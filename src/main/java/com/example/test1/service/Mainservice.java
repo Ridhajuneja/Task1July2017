@@ -51,10 +51,11 @@ public class Mainservice {
         // emf.close();
     }
 
-public int  authenticateUSer(String user_name,String password){
+public boolean authenticateUSer(String user_name,String password){
+
     TwitterUser user=userRepositry.getUserByname(user_name);
     if(user.getPassword().equals(password))
-        return 1;
+        return true;
    /* HashMap<String,String> hashMap=userRepositry.userMap();
     Set entrySet = hashMap.entrySet();
     Iterator it = entrySet.iterator();
@@ -66,7 +67,7 @@ public int  authenticateUSer(String user_name,String password){
             if(password.equals(me.getValue()))
                 return 1;*/
 
-    return 0;
+    return false;
 }
 @Transactional
 public String editUser(TwitterUser newuser)

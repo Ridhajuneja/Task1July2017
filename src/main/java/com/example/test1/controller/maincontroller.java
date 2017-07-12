@@ -46,9 +46,9 @@ public class maincontroller {
     public String loginUser(@RequestParam("user_name") String user_name,
                             @RequestParam("password") String password)
     {
-        int i=0;
-        i=mainservice.authenticateUSer(user_name,password);
-        if (i==1) {
+
+        boolean isAuth =mainservice.authenticateUSer(user_name,password);
+        if (isAuth) {
 
             return "Welcome "+user_name;
         }
